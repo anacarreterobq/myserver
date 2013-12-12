@@ -5,6 +5,7 @@ import core.Message;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.ListIterator;
 
 /**
  * Created with IntelliJ IDEA.
@@ -34,11 +35,11 @@ public class ChatMessagesPersistence {
         return list_messages_persistence;
     }
 
-    private void setList_messages_persistence(List<Message> list_messages_persistence) {
+    public void setList_messages_persistence(List<Message> list_messages_persistence) {
         this.list_messages_persistence = list_messages_persistence;
     }
 
-    private int getNext_sequence_number_persistence() {
+    public int getNext_sequence_number_persistence() {
         return list_messages_persistence.size();
     }
 
@@ -46,5 +47,12 @@ public class ChatMessagesPersistence {
         return this;
     }
 
-
+    public List<Message> getMessagesFromSequenceName(int nextSeq) {
+        List<Message> result = new ArrayList<Message>();
+        ListIterator<Message> li = result.listIterator(nextSeq);
+        while( li.hasNext() ){
+            result.add(li.next());
+        }
+        return result;
+    }
 }

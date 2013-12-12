@@ -23,11 +23,12 @@ public class ServerResource {
 
     public ServerResource(){}
 
-    private static final ChatMessagesPersistence chat_messages = new ChatMessagesPersistence();
+    private ChatMessagesPersistence chat_messages = new ChatMessagesPersistence();
 
     @GET
-    public String parameterDemoMethod(@QueryParam("next_seq") int foo) {
-        return "";
+    public ResponseMessage parameterDemoMethod(@QueryParam("next_seq") int foo) {
+        ResponseMessage response = new ResponseMessage(chat_messages.getMessagesFromSequenceName(foo),chat_messages.getNext_sequence_number_persistence());
+        return response;
     }
 
     @POST
