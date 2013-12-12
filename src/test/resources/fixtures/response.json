@@ -1,0 +1,7 @@
+{
+    "messages":[
+                    {"nick":"user1","message":"Hi!"},
+                    {"nick":"user2", "message":"What's up user1?!"}
+                ],
+    "nextSeq": 3
+}
