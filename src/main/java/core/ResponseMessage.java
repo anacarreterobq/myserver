@@ -24,7 +24,7 @@ public class ResponseMessage {
 
     public ResponseMessage(List<Message> message, int nextSeq) {
         this.messages = message;
-        this.nextSeq=nextSeq;
+        this.nextSeq =nextSeq;
     }
 
     public List<Message> getMessages() {

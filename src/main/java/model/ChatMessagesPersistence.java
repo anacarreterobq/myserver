@@ -48,11 +48,14 @@ public class ChatMessagesPersistence {
     }
 
     public List<Message> getMessagesFromSequenceName(int nextSeq) {
+        return list_messages_persistence.subList(nextSeq,list_messages_persistence.size());
+/*
         List<Message> result = new ArrayList<Message>();
         ListIterator<Message> li = result.listIterator(nextSeq);
         while( li.hasNext() ){
             result.add(li.next());
         }
-        return result;
+        return result;*/
+
     }
 }

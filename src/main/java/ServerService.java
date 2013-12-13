@@ -2,6 +2,7 @@ import com.yammer.dropwizard.Service;
 import com.yammer.dropwizard.config.Bootstrap;
 import com.yammer.dropwizard.config.Environment;
 import config.ServerServiceConfiguration;
+import model.ChatMessagesPersistence;
 import resources.ServerResource;
 
 /**
@@ -18,11 +19,11 @@ public class ServerService extends Service<ServerServiceConfiguration> {
 
     @Override
     public void initialize(Bootstrap<ServerServiceConfiguration> bootstrap) {
-        bootstrap.setName("dropwizard-example");
+        bootstrap.setName("myserver");
     }
 
     @Override
     public void run(ServerServiceConfiguration conf, Environment env) throws Exception {
-        env.addResource(new ServerResource());
+        env.addResource(new ServerResource(new ChatMessagesPersistence()));
     }
 }
